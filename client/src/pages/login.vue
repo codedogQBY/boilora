@@ -6,6 +6,9 @@
         <CardDescription>欢迎回来，请输入您的登录信息</CardDescription>
       </CardHeader>
       <CardContent class="space-y-6">
+        <div v-if="redirectMessage" class="mb-4 p-3 bg-primary/10 rounded-md text-sm text-primary">
+          {{ redirectMessage }}
+        </div>
         <form @submit="onSubmit" class="space-y-6">
           <FormField v-slot="{ componentField }" name="email" :validate-on-blur="true">
             <FormItem class="space-y-1">
@@ -76,6 +79,8 @@ import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import * as z from 'zod'
 import { GithubIcon } from 'lucide-vue-next'
+import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 
 // 表单验证模式
 const formSchema = toTypedSchema(
@@ -86,9 +91,24 @@ const formSchema = toTypedSchema(
 )
 
 // 表单处理
-const { handleSubmit } = useForm({
+const { handleSubmit, setFieldValue } = useForm({
   validationSchema: formSchema,
   validateOnMount: false,
+})
+
+const route = useRoute()
+const redirectMessage = ref('')
+
+onMounted(() => {
+  // 检查URL参数中是否有预填邮箱
+  const email = route.query.email as string
+  if (email) {
+    // 使用同一个表单实例的setFieldValue方法
+    setFieldValue('email', email)
+  }
+
+  // 显示重定向消息
+  redirectMessage.value = (route.query.redirectMessage as string) || ''
 })
 
 const onSubmit = handleSubmit((values) => {

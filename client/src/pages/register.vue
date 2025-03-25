@@ -79,8 +79,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, onMounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form'
@@ -92,6 +92,7 @@ import { GithubIcon } from 'lucide-vue-next'
 
 // 获取路由实例
 const router = useRouter()
+const route = useRoute()
 const isLoading = ref(false)
 
 // 表单验证模式
@@ -109,7 +110,7 @@ const formSchema = toTypedSchema(
 )
 
 // 表单处理
-const { handleSubmit } = useForm({
+const { handleSubmit, setFieldValue } = useForm({
   validationSchema: formSchema,
   validateOnMount: false,
 })
@@ -137,6 +138,15 @@ const onSubmit = handleSubmit(async (values) => {
     console.error('注册失败:', error)
   } finally {
     isLoading.value = false
+  }
+})
+
+onMounted(() => {
+  // 检查URL参数中是否有预填邮箱
+  const email = route.query.email as string
+  if (email) {
+    // 使用同一个表单实例的setFieldValue方法
+    setFieldValue('email', email)
   }
 })
 </script>

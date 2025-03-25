@@ -47,10 +47,13 @@ import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import * as z from 'zod'
 import { FormControl, FormField, FormItem } from '@/components/ui/form'
+import { useRouter } from 'vue-router'
 
-const isLogin = ref(true)
+const isLogin = ref(false)
 const typingTextRef = ref<HTMLElement | null>(null)
 const fullText = '现在开启高效工作之旅！'
+const router = useRouter()
+const isLoading = ref(false)
 
 // 打字机效果实现（循环播放）
 onMounted(() => {
@@ -108,8 +111,40 @@ const { isFieldDirty, handleSubmit } = useForm({
   validationSchema: formSchema,
 })
 
-const onSubmit = handleSubmit((values) => {
-  console.log(values)
+const onSubmit = handleSubmit(async (values) => {
+  console.log('邮箱地址:', values.email)
+  isLoading.value = true
+
+  try {
+    // 模拟API调用，检查用户是否已存在
+    await new Promise((resolve) => setTimeout(resolve, 800))
+
+    // 模拟随机结果：用户存在或不存在
+    const isExistingUser = Math.random() > 0.5 // 随机模拟用户是否已存在
+
+    if (isExistingUser) {
+      // 如果用户已存在，跳转到登录页面并预填邮箱
+      router.push({
+        path: '/login',
+        query: {
+          email: values.email,
+          redirectMessage: '此邮箱已注册，请直接登录',
+        },
+      })
+    } else {
+      // 如果是新用户，跳转到注册页面并预填邮箱
+      router.push({
+        path: '/register',
+        query: {
+          email: values.email,
+        },
+      })
+    }
+  } catch (error) {
+    console.error('请求处理失败:', error)
+  } finally {
+    isLoading.value = false
+  }
 })
 </script>
 
