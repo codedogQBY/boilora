@@ -5,15 +5,17 @@
       class="absolute -left-8 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity"
     >
       <button
-        class="h-6 w-6 flex items-center justify-center rounded hover:bg-accent"
+        class="h-6 w-6 flex items-center justify-center rounded hover:bg-accent/10 transition-colors"
         @click="$emit('add')"
       >
-        <PlusIcon class="h-3.5 w-3.5" />
+        <PlusIcon class="h-3.5 w-3.5 text-muted-foreground" />
       </button>
     </div>
 
     <!-- 块内容 -->
-    <div class="rounded-md hover:bg-accent/20 focus-within:bg-accent/20 p-1.5">
+    <div
+      class="rounded-md hover:bg-accent/5 focus-within:bg-accent/5 p-2 transition-all duration-200"
+    >
       <!-- 标题渲染 -->
       <div v-if="block.type === 'heading'">
         <component
@@ -22,7 +24,7 @@
           contenteditable="true"
           @input="updateContent"
           @keydown.enter.prevent="handleEnter"
-          class="outline-none w-full"
+          class="outline-none w-full transition-colors"
           :class="{
             'text-2xl font-bold': block.level === 1,
             'text-xl font-semibold': block.level === 2,
@@ -38,7 +40,7 @@
         contenteditable="true"
         @input="updateContent"
         @keydown.enter.prevent="handleEnter"
-        class="outline-none w-full py-1"
+        class="outline-none w-full py-1 leading-relaxed"
       />
 
       <!-- 列表渲染 -->
@@ -49,11 +51,11 @@
             contenteditable="true"
             @input="(e) => updateListItem(index, e)"
             @keydown.enter.prevent="handleListEnter(index)"
-            class="outline-none"
+            class="outline-none leading-relaxed"
           />
         </li>
         <button
-          class="text-sm text-muted-foreground hover:text-foreground py-1"
+          class="text-sm text-muted-foreground hover:text-foreground py-1 px-2 rounded hover:bg-accent/10 transition-colors"
           @click="addListItem"
         >
           添加项目...
@@ -62,13 +64,13 @@
 
       <!-- 右侧工具条 -->
       <div
-        class="absolute right-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity flex items-center space-x-1 bg-background/80 rounded-md px-1"
+        class="absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity flex items-center space-x-1 bg-card border border-border/20 rounded px-1 py-0.5 shadow-sm"
       >
         <DropdownMenu>
           <DropdownMenuTrigger
-            class="h-6 w-6 flex items-center justify-center rounded hover:bg-accent"
+            class="h-6 w-6 flex items-center justify-center rounded hover:bg-accent/10 transition-colors"
           >
-            <TypeIcon class="h-3.5 w-3.5" />
+            <TypeIcon class="h-3.5 w-3.5 text-muted-foreground" />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuItem @click="changeBlockType('paragraph')">
@@ -89,13 +91,13 @@
             </DropdownMenuItem>
             <DropdownMenuItem @click="changeBlockType('bullet-list')">
               <ListIcon class="h-4 w-4 mr-2" />
-              <span>项目列表</span>
+              <span>列表</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
 
         <button
-          class="h-6 w-6 flex items-center justify-center rounded hover:bg-accent"
+          class="h-6 w-6 flex items-center justify-center rounded hover:bg-accent/10 text-muted-foreground hover:text-destructive transition-colors"
           @click="$emit('delete')"
         >
           <TrashIcon class="h-3.5 w-3.5" />

@@ -1,18 +1,18 @@
 <template>
-  <div class="mb-4">
+  <div class="mb-6">
     <div class="flex items-center mb-2">
       <DropdownMenu>
         <DropdownMenuTrigger
-          class="h-8 w-8 mr-2 flex items-center justify-center rounded hover:bg-accent"
+          class="h-10 w-10 mr-3 flex items-center justify-center rounded hover:bg-accent/5 transition-colors"
         >
-          <span class="text-xl">{{ icon }}</span>
+          <span class="text-2xl">{{ icon }}</span>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <div class="p-2 grid grid-cols-8 gap-1">
             <button
               v-for="emoji in commonEmojis"
               :key="emoji"
-              class="h-8 w-8 flex items-center justify-center text-xl rounded hover:bg-accent"
+              class="h-8 w-8 flex items-center justify-center text-xl rounded hover:bg-accent/5 transition-colors"
               @click="$emit('update:icon', emoji)"
             >
               {{ emoji }}
@@ -29,10 +29,12 @@
       />
     </div>
 
-    <div class="flex items-center text-sm text-muted-foreground">
-      <CalendarIcon class="h-3.5 w-3.5 mr-1" />
+    <div class="flex items-center text-sm text-muted-foreground ml-1">
+      <CalendarIcon class="h-3.5 w-3.5 mr-1.5" />
       <span>{{ formattedDate }}</span>
     </div>
+
+    <div class="h-px w-full bg-border/20 mt-6" />
   </div>
 </template>
 

@@ -1,18 +1,18 @@
 <template>
   <div class="py-0.5">
     <div
-      class="flex items-center py-1 px-2 rounded-md text-sm hover:bg-accent/50 cursor-pointer group"
-      :class="{ 'bg-accent/70': document.active }"
+      class="flex items-center py-1.5 px-2 rounded-md text-sm hover:bg-accent/5 cursor-pointer group transition-all duration-150"
+      :class="{ 'bg-accent/10 text-foreground font-medium': document.active }"
       :style="{ paddingLeft: `${level * 12 + 8}px` }"
       @click="$emit('select', document)"
     >
       <button
-        class="h-4 w-4 flex items-center justify-center mr-1"
+        class="h-4 w-4 flex items-center justify-center mr-1 text-muted-foreground"
         @click.stop="$emit('toggle', document)"
         v-if="document.children.length > 0"
       >
         <ChevronRight
-          class="h-3.5 w-3.5 transition-transform"
+          class="h-3.5 w-3.5 transition-transform duration-200"
           :class="{ 'rotate-90': document.expanded }"
         />
       </button>
@@ -27,7 +27,7 @@
       <span class="flex-1 truncate">{{ document.title }}</span>
 
       <button
-        class="h-5 w-5 opacity-0 group-hover:opacity-100 flex items-center justify-center hover:bg-accent rounded"
+        class="h-5 w-5 opacity-0 group-hover:opacity-100 flex items-center justify-center hover:bg-accent/20 rounded transition-all"
         @click.stop="$emit('add', document)"
       >
         <PlusIcon class="h-3 w-3" />

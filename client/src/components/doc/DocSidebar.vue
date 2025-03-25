@@ -1,45 +1,54 @@
 <template>
   <div
-    class="h-screen bg-card border-r border-border overflow-hidden transition-all duration-300"
+    class="h-screen bg-card overflow-hidden transition-all duration-300 border-r border-border/20"
     :class="isOpen ? 'w-64' : 'w-0 md:w-14'"
   >
     <!-- 顶部 -->
-    <div class="h-14 border-b border-border flex items-center px-3">
+    <div class="h-14 flex items-center px-3 border-b border-border/10">
       <button
         @click="$emit('toggle')"
-        class="w-8 h-8 flex items-center justify-center rounded hover:bg-accent"
+        class="w-8 h-8 flex items-center justify-center rounded hover:bg-accent/10 transition-colors"
       >
-        <ChevronsLeft v-if="isOpen" class="h-5 w-5" />
-        <ChevronsRight v-else class="h-5 w-5" />
+        <ChevronsLeft v-if="isOpen" class="h-4 w-4 text-muted-foreground" />
+        <ChevronsRight v-else class="h-4 w-4 text-muted-foreground" />
       </button>
-      <span v-if="isOpen" class="ml-2 font-medium">我的知识库</span>
+      <span
+        v-if="isOpen"
+        class="ml-2 font-medium opacity-100 transition-opacity duration-300 whitespace-nowrap"
+      >
+        我的知识库
+      </span>
     </div>
 
     <!-- 搜索框 -->
-    <div v-if="isOpen" class="px-3 py-2">
+    <div v-if="isOpen" class="px-3 py-3 opacity-100 transition-opacity duration-300 delay-100">
       <div class="relative">
-        <SearchIcon class="h-4 w-4 absolute left-2 top-2.5 text-muted-foreground" />
+        <SearchIcon class="h-3.5 w-3.5 absolute left-2.5 top-[9px] text-muted-foreground" />
         <input
           type="text"
           placeholder="搜索..."
-          class="w-full h-9 pl-8 pr-2 rounded-md bg-accent/50 text-sm border-0 focus:outline-none focus:ring-1 focus:ring-primary"
+          class="w-full h-8 pl-8 pr-3 rounded-md bg-accent/5 text-sm border border-border/10 focus:border-primary/30 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-all"
         />
       </div>
     </div>
 
     <!-- 文档树 -->
-    <div class="overflow-y-auto h-[calc(100vh-56px)]" v-if="isOpen">
-      <div class="px-2 py-1">
+    <div
+      class="overflow-y-auto h-[calc(100vh-56px)] opacity-100 transition-opacity duration-300 delay-150 scrollbar-thin"
+      v-if="isOpen"
+    >
+      <div class="px-3 py-2">
         <!-- 收藏夹 -->
-        <div class="py-1">
-          <div class="flex items-center text-xs text-muted-foreground px-2 py-1">
-            <span>收藏夹</span>
+        <div class="py-2">
+          <div class="flex items-center justify-between text-xs text-muted-foreground py-1.5 px-2">
+            <span class="font-medium">收藏夹</span>
+            <div class="w-4" />
           </div>
           <div
             v-for="doc in favoriteDocuments"
             :key="doc.id"
-            class="flex items-center py-1 px-2 rounded-md text-sm hover:bg-accent/50 cursor-pointer"
-            :class="{ 'bg-accent/70': doc.active }"
+            class="flex items-center py-1.5 px-2 rounded-md text-sm hover:bg-accent/5 cursor-pointer transition-colors duration-200"
+            :class="{ 'bg-accent/10 text-foreground font-medium': doc.active }"
             @click="selectDocument(doc)"
           >
             <div v-if="typeof doc.icon === 'string'" class="mr-2 text-base leading-none">
@@ -51,14 +60,14 @@
         </div>
 
         <!-- 文档列表 -->
-        <div class="py-1 mt-2">
-          <div class="flex items-center justify-between text-xs text-muted-foreground px-2 py-1">
-            <span>文档</span>
+        <div class="py-2 mt-1">
+          <div class="flex items-center justify-between text-xs text-muted-foreground py-1.5 px-2">
+            <span class="font-medium">文档</span>
             <button
-              class="w-5 h-5 flex items-center justify-center rounded hover:bg-accent"
+              class="w-5 h-5 flex items-center justify-center rounded hover:bg-accent/10 transition-colors"
               @click="addNewDocument(null)"
             >
-              <PlusIcon class="h-3.5 w-3.5" />
+              <PlusIcon class="h-3 w-3" />
             </button>
           </div>
 
@@ -78,13 +87,13 @@
     </div>
 
     <!-- 收起侧边栏后的图标菜单 -->
-    <div v-else class="flex flex-col items-center py-2">
+    <div v-else class="flex flex-col items-center py-2 opacity-100 transition-opacity duration-300">
       <button
         v-for="(icon, index) in [{ icon: SearchIcon }, { icon: StarIcon }, { icon: FileTextIcon }]"
         :key="index"
-        class="w-8 h-8 mb-1 flex items-center justify-center rounded hover:bg-accent"
+        class="w-8 h-8 mb-1 flex items-center justify-center rounded hover:bg-accent/10 transition-colors"
       >
-        <component :is="icon.icon" class="h-4 w-4" />
+        <component :is="icon.icon" class="h-4 w-4 text-muted-foreground" />
       </button>
     </div>
   </div>

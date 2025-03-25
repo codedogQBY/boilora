@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-screen overflow-hidden">
+  <div class="flex h-screen overflow-hidden bg-background">
     <!-- 侧边栏 -->
     <DocSidebar :is-open="isSidebarOpen" @toggle="isSidebarOpen = !isSidebarOpen" />
 
@@ -9,10 +9,10 @@
       <DocHeader :title="currentPage.title" @toggle-sidebar="isSidebarOpen = !isSidebarOpen" />
 
       <!-- 内容区域 -->
-      <div class="flex-1 overflow-auto">
-        <div class="max-w-4xl mx-auto px-4 py-10">
+      <div class="flex-1 overflow-auto scrollbar-thin">
+        <div class="max-w-3xl mx-auto px-8 py-12">
           <!-- 页面标题区域 -->
-          <div class="mb-6">
+          <div class="mb-10">
             <DocPageTitle
               v-model:title="currentPage.title"
               :icon="currentPage.icon"
@@ -21,24 +21,27 @@
           </div>
 
           <!-- 子页面导航 (如果有子页面) -->
-          <div v-if="hasChildPages" class="mb-10">
-            <h3 class="font-medium text-sm text-muted-foreground mb-2">子页面</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <div v-if="hasChildPages" class="mb-12">
+            <div class="mb-3 flex items-center">
+              <h3 class="text-sm font-medium text-muted-foreground">子页面</h3>
+              <div class="ml-3 h-px flex-1 bg-border/30" />
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div
                 v-for="child in childPages"
                 :key="child.id"
-                class="flex items-center p-2 hover:bg-accent/50 rounded-md cursor-pointer"
+                class="flex items-center p-3 hover:bg-accent/5 rounded-md cursor-pointer transition-all duration-200 border border-border/10 hover:border-border/30"
                 @click="navigateToPage(child.id)"
               >
-                <span class="text-base mr-2">{{ child.icon }}</span>
-                <span>{{ child.title }}</span>
+                <span class="text-lg mr-3">{{ child.icon }}</span>
+                <span class="text-sm">{{ child.title }}</span>
               </div>
               <div
-                class="flex items-center p-2 hover:bg-accent/50 rounded-md cursor-pointer text-muted-foreground"
+                class="flex items-center p-3 hover:bg-accent/5 rounded-md cursor-pointer text-muted-foreground transition-all duration-200 border border-dashed border-border/20"
                 @click="addChildPage"
               >
-                <PlusIcon class="h-4 w-4 mr-2" />
-                <span>添加子页面</span>
+                <PlusIcon class="h-4 w-4 mr-3" />
+                <span class="text-sm">添加子页面</span>
               </div>
             </div>
           </div>
@@ -57,7 +60,7 @@
             <!-- 添加新块按钮 -->
             <button
               @click="addBlock()"
-              class="w-full py-2 mt-4 flex items-center justify-center text-sm text-muted-foreground hover:bg-accent/50 rounded-md"
+              class="w-full py-2.5 mt-6 flex items-center justify-center text-sm text-muted-foreground hover:bg-accent/5 rounded-md transition-colors duration-200 border border-dashed border-border/20"
             >
               <PlusIcon class="h-4 w-4 mr-2" />
               添加内容
