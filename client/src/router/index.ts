@@ -55,6 +55,15 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/doc',
+    name: 'doc',
+    component: () => import('@/pages/doc/index.vue'),
+    meta: {
+      title: '知识库',
+      requiresAuth: true,
+    },
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'notFound',
     component: NotFound,
