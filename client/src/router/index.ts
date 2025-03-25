@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
-import Home from '@/pages/home/index.vue'
+import Home from '@/pages/home.vue'
 import Login from '@/pages/login.vue'
 import Register from '@/pages/register.vue'
 import NotFound from '@/pages/not-found.vue'
@@ -57,7 +57,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/doc',
     name: 'doc',
-    component: () => import('@/pages/doc/index.vue'),
+    component: () => import('@/pages/doc.vue'),
     meta: {
       title: '知识库',
       requiresAuth: true,
