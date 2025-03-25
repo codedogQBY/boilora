@@ -1,18 +1,79 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+# Dependencies
+node_modules
+.pnp
+.pnp.js
 
-# Other files and folders
-.settings/
+# Testing
+coverage
+.nyc_output
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# Production
+dist
+dist-ssr
+build
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# Misc
+.DS_Store
+*.pem
+*.local
+
+# Debug
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+
+# Editor directories and files
+.vscode/settings.json
+.idea
+.cursorrules
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temp directories
+.temp
+.tmp
+
+# Runtime data
+.turbo
+tsconfig.tsbuildinfo
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Client
+client/node_modules
+client/dist
+
+# Api
+api/node_modules
+# app build
+api/view
+# upload
+api/uploads
+
+
+## npmrc
+.npmrc
+
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
+!.env.example
+
+# deploy
+scripts/builder/build-job.env
+scripts/deploy/run.env

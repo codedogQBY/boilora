@@ -1,0 +1,6 @@
+auto-install-peers: true
+
+packages:
+  - 'client'
+  - 'service'
+  - 'common'
