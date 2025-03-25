@@ -1,9 +1,17 @@
 <script setup lang="ts">
-// 不需要直接导入组件，我们将使用router-view
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import AppHeader from '@/components/layout/AppHeader.vue'
+
+const route = useRoute()
+const isDocPage = computed(() => route.path.startsWith('/doc'))
 </script>
 
 <template>
-  <router-view />
+  <!-- 总是显示头部 -->
+  <AppHeader v-if="!isDocPage" />
+  <!-- 路由视图 -->
+  <RouterView />
 </template>
 
 <style scoped></style>
