@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Home from '@/pages/home/index.vue'
+// 不需要直接导入组件，我们将使用router-view
 </script>
 
 <template>
-  <Home />
+  <router-view />
 </template>
 
 <style scoped></style>
