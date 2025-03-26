@@ -16,7 +16,7 @@
         v-if="isOpen"
         class="ml-2 font-medium opacity-100 transition-opacity duration-300 whitespace-nowrap"
       >
-        我的知识库
+        <Logo />
       </span>
     </div>
 
@@ -110,6 +110,7 @@ import {
   PlusIcon,
 } from 'lucide-vue-next'
 import DocTreeNode from './DocTreeNode.vue'
+import Logo from '@/components/logo.vue'
 
 defineProps({
   isOpen: {
