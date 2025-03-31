@@ -19,28 +19,60 @@ onBeforeUnmount(() => {
   editor.value?.destroy()
 })
 </script>
-<style>
-/* 移除 TipTap 编辑器的聚焦边框 */
+
+<style lang="less">
 .ProseMirror {
+  padding: 1rem 1rem 1rem 0;
   outline: none !important;
+
+  :focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  code {
+    background-color: #f4f4f4;
+    border-radius: 0.4rem;
+    color: #333;
+    font-size: 0.85rem;
+    padding: 0.25em 0.3em;
+    font-family: 'JetBrainsMono', monospace;
+  }
+
+  * {
+    margin-top: 0.75em;
+  }
+
+  > * {
+    margin-left: 1rem;
+  }
+
+  .ProseMirror-widget * {
+    margin-top: auto;
+  }
+
+  ul,
+  ol {
+    padding: 0 1rem;
+  }
 }
 
-.ProseMirror:focus {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-  background: transparent !important;
-}
-</style>
+.ProseMirror-noderangeselection {
+  *::selection {
+    background: transparent;
+  }
 
-<style scoped lang="less">
-/* Basic editor styles */
+  * {
+    caret-color: transparent;
+  }
+}
+
 .tiptap {
   :first-child {
     margin-top: 0;
   }
-
-  /* List styles */
 
   ul,
   ol {
@@ -62,13 +94,13 @@ onBeforeUnmount(() => {
   h5,
   h6 {
     line-height: 1.1;
-    margin-top: 2.5rem;
     text-wrap: pretty;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
   }
 
   h1,
   h2 {
-    margin-top: 3.5rem;
     margin-bottom: 1.5rem;
   }
 
@@ -93,9 +125,9 @@ onBeforeUnmount(() => {
   /* Code and preformatted text styles */
 
   code {
-    background-color: #f4f4f4;
+    background-color: #eee7fb;
     border-radius: 0.4rem;
-    color: #333;
+    color: var(--black);
     font-size: 0.85rem;
     padding: 0.25em 0.3em;
   }
