@@ -31,11 +31,9 @@
   </Button>
   <ColorSelect
     :editor="editor"
-    :color="editor.isActive('color') ? editor.getAttributes('color').attrs.color : 'black'"
+    :color="editor.isActive('textStyle') ? editor.getAttributes('textStyle').color : 'black'"
     :backgroundColor="
-      editor.isActive('background')
-        ? editor.getAttributes('backgroundColor').background
-        : 'transparent'
+      editor.isActive('textStyle') ? editor.getAttributes('textStyle').background : 'transparent'
     "
   />
 </template>
