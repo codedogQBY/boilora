@@ -127,15 +127,15 @@ onBeforeUnmount(() => {
   code {
     background-color: #eee7fb;
     border-radius: 0.4rem;
-    color: var(--black);
+    color: #121212;
     font-size: 0.85rem;
     padding: 0.25em 0.3em;
   }
 
   pre {
-    background: var(--black);
+    background: #121212;
     border-radius: 0.5rem;
-    color: var(--white);
+    color: #d5d5d5;
     font-family: 'JetBrainsMono', monospace;
     margin: 1.5rem 0;
     padding: 0.75rem 1rem;
@@ -149,15 +149,65 @@ onBeforeUnmount(() => {
   }
 
   blockquote {
-    border-left: 3px solid var(--gray-3);
+    border-left: 3px solid #d1d1d1;
     margin: 1.5rem 0;
     padding-left: 1rem;
   }
 
   hr {
     border: none;
-    border-top: 1px solid var(--gray-2);
+    border-top: 1px solid #838383;
     margin: 2rem 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 0;
+    overflow: hidden;
+    table-layout: fixed;
+    width: 100%;
+
+    td,
+    th {
+      border: 1px solid #bcbcbc;
+      box-sizing: border-box;
+      min-width: 1em;
+      padding: 6px 8px;
+      position: relative;
+      vertical-align: top;
+
+      > * {
+        margin-bottom: 0;
+      }
+    }
+
+    th {
+      background-color: #d1d1d1;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .selectedCell:after {
+      background: rgba(187, 214, 251, 0.1);
+      content: '';
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      pointer-events: none;
+      position: absolute;
+      z-index: 2;
+    }
+
+    .column-resize-handle {
+      background-color: #5b5bf3;
+      bottom: -2px;
+      pointer-events: none;
+      position: absolute;
+      right: -2px;
+      top: 0;
+      width: 4px;
+    }
   }
 }
 </style>
