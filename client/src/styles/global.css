@@ -49,3 +49,29 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* 添加拖拽指示器样式 */
+.ProseMirror-dropCursor {
+  position: absolute;
+  background-color: #68cef8;
+  width: 2px;
+  pointer-events: none;
+}
+
+/* 优化拖拽过程中的视觉效果 */
+.ProseMirror .ProseMirror-selectednode {
+  outline: 2px solid #68cef8;
+  border-radius: 0.2rem;
+}
+
+/* 拖拽时的节点样式 */
+.dragging {
+  opacity: 0.5;
+  cursor: move;
+}
+
+/* 确保拖拽指示器在编辑器中可见 */
+.editor-container {
+  position: relative;
+  overflow: visible !important;
+}

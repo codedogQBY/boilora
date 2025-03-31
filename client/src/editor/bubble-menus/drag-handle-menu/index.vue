@@ -13,6 +13,11 @@
     }"
     :editor="editor"
     :shouldShow="() => true"
+    :dragHandleOptions="{
+      enableDragAndDrop: true,
+      dragAndDropEffect: 'move',
+      showDropCursor: true,
+    }"
   >
     <div class="flex items-center">
       <InsertButton :editor="editor" />

@@ -21,6 +21,7 @@ import { Background } from './background'
 import { Underline } from './underline'
 import { TextStyle } from './text-style'
 import { NodeRange } from './node-range'
+import { Dropcursor } from '@tiptap/extension-dropcursor'
 
 export default [
   Bold,
@@ -46,4 +47,8 @@ export default [
   Underline,
   TextStyle,
   NodeRange,
+  Dropcursor.configure({
+    color: '#68CEF8',
+    width: 2,
+  }),
 ]
