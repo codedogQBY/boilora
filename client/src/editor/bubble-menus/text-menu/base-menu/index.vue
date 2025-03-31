@@ -31,10 +31,10 @@
   </Button>
   <ColorSelect
     :editor="editor"
-    :color="editor.isActive('textColor') ? editor.getAttributes('color').attrs.color : 'black'"
+    :color="editor.isActive('color') ? editor.getAttributes('color').attrs.color : 'black'"
     :backgroundColor="
-      editor.isActive('backgroundColor')
-        ? editor.getAttributes('backgroundColor').attrs.backgroundColor
+      editor.isActive('background')
+        ? editor.getAttributes('backgroundColor').background
         : 'transparent'
     "
   />

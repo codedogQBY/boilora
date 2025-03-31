@@ -3,7 +3,7 @@
     <TooltipProvider v-for="item in colors" :key="item.color">
       <Tooltip>
         <TooltipTrigger>
-          <Button
+          <div
             class="h-5 w-5 hover:border-slate-700"
             :style="{
               backgroundColor: item.color,
@@ -30,7 +30,6 @@
 import { ref, defineProps } from 'vue'
 import { Editor } from '@tiptap/core'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
-import { Button } from '@/components/ui/button'
 
 const props = defineProps({
   editor: {

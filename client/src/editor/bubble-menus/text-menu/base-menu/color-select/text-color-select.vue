@@ -3,8 +3,8 @@
     <TooltipProvider v-for="item in colors" :key="item.color">
       <Tooltip>
         <TooltipTrigger>
-          <Button
-            class="h-4 w-4 hover:border-slate-700"
+          <div
+            class="h-5 w-5 flex items-center justify-center hover:border-slate-700"
             :style="{
               color: item.color,
               border: item.color === color ? '1px solid #333' : '1px solid #bfbfbf',
@@ -12,7 +12,7 @@
             @click="editor.chain().focus().setColor(item.color).run()"
           >
             A
-          </Button>
+          </div>
         </TooltipTrigger>
         <TooltipContent align="center" side="top">
           <div>
@@ -27,9 +27,8 @@
 import { ref, defineProps } from 'vue'
 import { Editor } from '@tiptap/core'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
-import { Button } from '@/components/ui/button'
 
-defineProps({
+const props = defineProps({
   editor: {
     type: Object as () => Editor,
     required: true,

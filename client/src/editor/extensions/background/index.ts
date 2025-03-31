@@ -38,6 +38,7 @@ export const Background = Extension.create<BackgroundOptions>({
 
               return {
                 style: `background: ${attributes.background}`,
+                background: attributes.background,
               }
             },
           },
@@ -51,7 +52,6 @@ export const Background = Extension.create<BackgroundOptions>({
       setBackground:
         (background) =>
         ({ chain }) => {
-          console.log('background', background)
           return chain().setMark('textStyle', { background: background }).run()
         },
       unsetBackground:
