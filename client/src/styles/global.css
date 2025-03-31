@@ -37,15 +37,13 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* 优化文档块渲染 */
-[contenteditable] {
-  transition: background-color 0.2s ease;
-}
-
-[contenteditable]:focus {
+/* 只对特定的可编辑元素应用聚焦样式，而不是所有的 */
+.editable-content:focus {
   background-color: rgba(var(--primary-color), 0.03);
   border-radius: 0.25rem;
 }
+
+/* 移除了通用的contenteditable聚焦样式 */
 
 /* 平滑滚动 */
 html {

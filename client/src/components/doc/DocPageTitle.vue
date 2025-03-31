@@ -24,7 +24,7 @@
       <input
         :value="title"
         @input="$emit('update:title', ($event.target as HTMLInputElement).value)"
-        class="text-3xl font-bold bg-transparent border-none focus:outline-none focus:ring-0 w-full"
+        class="text-3xl font-bold bg-transparent border-none focus:outline-none focus:ring-0 w-full editable-content"
         placeholder="无标题"
       />
     </div>
@@ -88,7 +88,7 @@ const commonEmojis = [
   '📚',
   '🏆',
   '🔍',
-  '��️',
   '📦',
+  '📂',
 ]
 </script>

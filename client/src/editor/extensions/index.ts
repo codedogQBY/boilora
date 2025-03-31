@@ -1,0 +1,41 @@
+import { Bold } from './bold'
+import { Code } from './code'
+import { CodeBlock } from './code-block'
+import { Color } from './color'
+import { Document } from './document'
+import { FontFamily } from './font-family'
+import { HardBreak } from './hard-break'
+import { Heading } from './heading'
+import { HighlightMarker } from './highlight-marker'
+import { HorizontalRule } from './horizontal-rule'
+import { ImageBlock } from './image-block'
+import { Italic } from './italic'
+import { Link } from './link'
+import { ListItem } from './list-item'
+import { OrderedList } from './ordered-list'
+import { Paragraph } from './paragraph'
+import { Selection } from './selection'
+import { Strike } from './strike'
+import { Text } from './text'
+
+export default [
+  Bold,
+  Code,
+  CodeBlock,
+  Color,
+  Document,
+  FontFamily,
+  HardBreak,
+  Heading,
+  HighlightMarker,
+  HorizontalRule,
+  ImageBlock,
+  Italic,
+  Link,
+  ListItem,
+  OrderedList,
+  Paragraph,
+  Selection,
+  Strike,
+  Text,
+]
