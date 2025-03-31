@@ -39,8 +39,6 @@ const props = defineProps({
   },
 })
 
-console.log(props.editor.getAttributes('textStyle').background)
-
 const colors = [
   { color: 'transparent', label: '透明' },
   { color: '#f3f4f6', label: '浅灰' },
