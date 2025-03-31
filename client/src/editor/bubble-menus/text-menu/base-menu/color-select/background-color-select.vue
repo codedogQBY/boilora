@@ -1,33 +1,30 @@
 <template>
-  <div class="space-x-1">
-    <TooltipProvider v-for="item in colors" :key="item.color">
-      <Tooltip>
-        <TooltipTrigger>
-          <div
-            class="h-5 w-5 hover:border-slate-700"
-            :style="{
-              backgroundColor: item.color,
-              border: item.color === backgroundColor ? '1px solid #333' : '1px solid #bfbfbf',
-              backgroundImage:
-                item.color === 'transparent'
-                  ? 'linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%)'
-                  : 'none',
-              backgroundSize: item.color === 'transparent' ? '4px 4px' : 'auto',
-            }"
-            @click="editor.chain().focus().setBackground(item.color).run()"
-          />
-        </TooltipTrigger>
-        <TooltipContent align="center" side="top">
-          <div>
-            <span>{{ item.label }}</span>
-          </div>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+  <div>
+    <h3 class="text-xs font-medium mb-2">背景颜色</h3>
+    <div class="flex flex-wrap gap-2">
+      <TooltipProvider v-for="item in colors" :key="item.color">
+        <Tooltip>
+          <TooltipTrigger>
+            <div
+              class="h-7 w-7 rounded-md hover:border-slate-700"
+              :style="{
+                backgroundColor: item.color,
+                border: item.color === backgroundColor ? '1px solid #333' : '1px solid #e5e5e5',
+              }"
+              @click="editor.chain().focus().setBackground(item.color).run()"
+            />
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>{{ item.label }}</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    </div>
   </div>
 </template>
+
 <script setup lang="ts">
-import { ref, defineProps } from 'vue'
+import { defineProps } from 'vue'
 import { Editor } from '@tiptap/core'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 
@@ -42,51 +39,18 @@ const props = defineProps({
   },
 })
 
-// 所有背景颜色：透明、浅灰、灰色、深灰、黑色、红色、黄色、绿色、蓝色、紫色、粉色
-const colors = ref([
-  {
-    label: '透明',
-    color: 'transparent',
-  },
-  {
-    label: '浅灰',
-    color: '#f1f1f1',
-  },
-  {
-    label: '灰色',
-    color: '#a3a3a3',
-  },
-  {
-    label: '深灰',
-    color: '#4a4a4a',
-  },
-  {
-    label: '黑色',
-    color: 'black',
-  },
-  {
-    label: '红色',
-    color: 'red',
-  },
-  {
-    label: '黄色',
-    color: 'yellow',
-  },
-  {
-    label: '绿色',
-    color: 'green',
-  },
-  {
-    label: '蓝色',
-    color: 'blue',
-  },
-  {
-    label: '紫色',
-    color: 'purple',
-  },
-  {
-    label: '粉色',
-    color: 'pink',
-  },
-])
+console.log(props.editor.getAttributes('textStyle').background)
+
+const colors = [
+  { color: 'transparent', label: '透明' },
+  { color: '#f3f4f6', label: '浅灰' },
+  { color: '#e5e7eb', label: '灰色' },
+  { color: '#fff1e6', label: '米色' },
+  { color: '#fef3c7', label: '浅黄' },
+  { color: '#ecfccb', label: '浅绿' },
+  { color: '#dbeafe', label: '浅蓝' },
+  { color: '#f3e8ff', label: '浅紫' },
+  { color: '#fce7f3', label: '浅粉' },
+  { color: '#ffcdd2', label: '浅红' },
+]
 </script>

@@ -3,16 +3,14 @@
     <PopoverTrigger>
       <div class="flex items-center justify-center">
         <Button size="sm" variant="ghost" class="flex items-center justify-center">
-          <div class="text-base px-1 rounded-sm" :style="{ color, backgroundColor }">A</div>
+          <div class="text-base px-2 rounded-sm" :style="{ color, backgroundColor }">A</div>
           <ChevronDownIcon :style="{ color: 'black' }" v-if="!open" />
           <ChevronUpIcon :style="{ color: 'black' }" v-else />
         </Button>
       </div>
     </PopoverTrigger>
     <PopoverContent class="space-y-2">
-      <div class="text-sm">字体颜色</div>
       <textColor v-bind="props" />
-      <div class="text-sm">背景颜色</div>
       <background v-bind="props" />
     </PopoverContent>
   </Popover>
