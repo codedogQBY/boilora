@@ -25,22 +25,6 @@ onBeforeUnmount(() => {
   padding: 1rem 1rem 1rem 0;
   outline: none !important;
 
-  :focus {
-    outline: none !important;
-    box-shadow: none !important;
-    border: none !important;
-    background: transparent !important;
-  }
-
-  code {
-    background-color: #f4f4f4;
-    border-radius: 0.4rem;
-    color: #333;
-    font-size: 0.85rem;
-    padding: 0.25em 0.3em;
-    font-family: 'JetBrainsMono', monospace;
-  }
-
   * {
     margin-top: 0.75em;
   }
@@ -56,16 +40,6 @@ onBeforeUnmount(() => {
   ul,
   ol {
     padding: 0 1rem;
-  }
-}
-
-.ProseMirror-noderangeselection {
-  *::selection {
-    background: transparent;
-  }
-
-  * {
-    caret-color: transparent;
   }
 }
 

@@ -20,7 +20,6 @@ import { Text } from './text'
 import { Background } from './background'
 import { Underline } from './underline'
 import { TextStyle } from './text-style'
-import { NodeRange } from './node-range'
 import { Dropcursor } from './dropcursor'
 import { TextAlign } from './text-align'
 import { Table, TableHeader, TableRow, TableCell } from './table'
@@ -48,7 +47,6 @@ export default [
   Background,
   Underline,
   TextStyle,
-  NodeRange,
   Dropcursor,
   TextAlign,
   Table,
