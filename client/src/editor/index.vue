@@ -1,12 +1,14 @@
 <template>
   <div class="editor-container relative md:col-[2] w-full mx-auto mt-2">
     <editor-content :editor="editor" class="w-full h-full" />
+    <BubbleMenu v-if="editor" :editor="editor" />
   </div>
 </template>
 <script setup lang="ts">
 import { onBeforeUnmount } from 'vue'
 import { useEditor, EditorContent } from '@tiptap/vue-3'
 import extensions from './extensions'
+import BubbleMenu from './bubble-menus/index.vue'
 
 const editor = useEditor({
   content: '',
@@ -31,7 +33,7 @@ onBeforeUnmount(() => {
 }
 </style>
 
-<style scoped>
+<style scoped lang="less">
 /* Basic editor styles */
 .tiptap {
   :first-child {
@@ -91,9 +93,9 @@ onBeforeUnmount(() => {
   /* Code and preformatted text styles */
 
   code {
-    background-color: var(--purple-light);
+    background-color: #f4f4f4;
     border-radius: 0.4rem;
-    color: var(--black);
+    color: #333;
     font-size: 0.85rem;
     padding: 0.25em 0.3em;
   }

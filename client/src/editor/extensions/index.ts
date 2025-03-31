@@ -17,6 +17,9 @@ import { Paragraph } from './paragraph'
 import { Selection } from './selection'
 import { Strike } from './strike'
 import { Text } from './text'
+import { Background } from './background'
+import { Underline } from './underline'
+import { TextStyle } from './text-style'
 
 export default [
   Bold,
@@ -38,4 +41,7 @@ export default [
   Selection,
   Strike,
   Text,
+  Background,
+  Underline,
+  TextStyle,
 ]

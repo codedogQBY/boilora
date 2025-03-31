@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-6">
+  <div class="mb-4">
     <div class="flex items-center mb-2">
       <DropdownMenu>
         <DropdownMenuTrigger
@@ -33,8 +33,6 @@
       <CalendarIcon class="h-3.5 w-3.5 mr-1.5" />
       <span>{{ formattedDate }}</span>
     </div>
-
-    <div class="h-px w-full bg-border/20 mt-6" />
   </div>
 </template>
 
