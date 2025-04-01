@@ -1,0 +1,41 @@
+.tiptap {
+  code {
+    background-color: rgba(97, 97, 97, 0.1);
+    color: #616161;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+  }
+
+  pre {
+    background: #0d0d0d;
+    color: #fff;
+    font-family: monospace;
+    padding: 1rem;
+    border-radius: 0.25rem;
+
+    code {
+      color: inherit;
+      padding: 0;
+      background: none;
+      font-size: 0.8rem;
+      border-radius: 0;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  blockquote {
+    border-left: 3px solid #d1d1d1;
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #838383;
+    margin: 2rem 0;
+  }
+}

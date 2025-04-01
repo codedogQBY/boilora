@@ -1,0 +1,38 @@
+.ProseMirror {
+  padding: 1rem 1rem 1rem 0;
+  outline: none !important;
+
+  * {
+    margin-top: 0.75em;
+  }
+
+  > * {
+    margin-left: 1rem;
+  }
+
+  .ProseMirror-widget * {
+    margin-top: auto;
+  }
+
+  ul,
+  ol {
+    padding: 0 1rem;
+  }
+}
+
+.tiptap {
+  :first-child {
+    margin-top: 0;
+  }
+
+  ul,
+  ol {
+    padding: 0 1rem;
+    margin: 1.25rem 1rem 1.25rem 0.4rem;
+
+    li p {
+      margin-top: 0.25em;
+      margin-bottom: 0.25em;
+    }
+  }
+}

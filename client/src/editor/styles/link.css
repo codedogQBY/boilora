@@ -1,0 +1,30 @@
+/* 基本链接样式 */
+a {
+  color: #0088cc;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  border-radius: 2px;
+  padding: 0 2px;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+a:hover {
+  color: #006699;
+  background-color: rgba(0, 136, 204, 0.1);
+}
+
+/* 链接悬浮菜单样式 */
+.tippy-box {
+  font-size: 13px;
+}
+
+/* 链接菜单样式 */
+.link-bubble-menu {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 4px;
+}

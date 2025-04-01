@@ -23,9 +23,7 @@
   >
     <UnderlineIcon class="h-5 w-5" />
   </Button>
-  <Button size="sm" :variant="editor.isActive('link') ? 'secondary' : 'ghost'" @click="toggleLink">
-    <LinkIcon class="h-5 w-5" />
-  </Button>
+  <LinkEdit :editor="editor" />
   <Button size="sm" :variant="editor.isActive('code') ? 'secondary' : 'ghost'" @click="toggleCode">
     <Code2Icon class="h-5 w-5" />
   </Button>
@@ -40,16 +38,10 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
 import { Editor } from '@tiptap/core'
-import {
-  BoldIcon,
-  StrikethroughIcon,
-  ItalicIcon,
-  UnderlineIcon,
-  LinkIcon,
-  Code2Icon,
-} from 'lucide-vue-next'
+import { BoldIcon, StrikethroughIcon, ItalicIcon, UnderlineIcon, Code2Icon } from 'lucide-vue-next'
 import { Button } from '@/components/ui/button'
 import ColorSelect from './color-select/index.vue'
+import LinkEdit from './link-edit/index.vue'
 
 const props = defineProps({
   editor: {
@@ -72,10 +64,6 @@ const toggleUnderline = () => {
 
 const toggleStrikethrough = () => {
   props.editor.chain().focus().toggleStrike().run()
-}
-
-const toggleLink = () => {
-  props.editor.chain().focus().toggleLink({ href: '', target: '' }).run()
 }
 
 const toggleCode = () => {
