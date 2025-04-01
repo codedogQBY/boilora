@@ -9,6 +9,8 @@
         <ContentTypeMenu :editor="props.editor" />
         <div class="w-px h-4 bg-border mx-1" />
         <BaseMenu :editor="props.editor" />
+        <div class="w-px h-4 bg-border mx-1" />
+        <OtherMenu :editor="props.editor" />
       </div>
     </Wrapper>
   </BubbleMenu>
@@ -20,6 +22,7 @@ import BaseMenu from './base-menu/index.vue'
 import { BubbleMenu } from '@tiptap/vue-3'
 import Wrapper from '@/editor/bubble-menus/wrapper.vue'
 import ContentTypeMenu from './content-type-menu/index.vue'
+import OtherMenu from './other-menu/index.vue'
 
 const props = defineProps({
   editor: {
