@@ -1,4 +1,5 @@
 import { Bold } from './bold'
+import { BulletList } from '@/editor/extensions/bullet-list'
 import { Code } from './code'
 import { CodeBlock } from './code-block'
 import { Color } from './color'
@@ -23,6 +24,9 @@ import { TextStyle } from './text-style'
 import { Dropcursor } from './dropcursor'
 import { TextAlign } from './text-align'
 import { Table, TableHeader, TableRow, TableCell } from './table'
+import { TaskItem, TaskList } from './task'
+import { Subscript } from './subscript'
+import { Superscript } from './superscript'
 
 export default [
   Bold,
@@ -53,4 +57,9 @@ export default [
   TableHeader,
   TableRow,
   TableCell,
+  TaskItem,
+  TaskList,
+  BulletList,
+  Subscript,
+  Superscript,
 ]
