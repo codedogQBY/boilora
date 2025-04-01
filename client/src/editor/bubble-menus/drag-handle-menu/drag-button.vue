@@ -10,7 +10,7 @@
         @click="handleRemoveFormatting"
         size="sm"
         variant="ghost"
-        class="justify-start w-full mx-0 px-1"
+        class="justify-start w-full mx-0 px-2"
       >
         <RemoveFormattingIcon class="h-5 w-5 mr-1" />
         <span>清除格式</span>
@@ -19,7 +19,7 @@
         @click="handleCopyNode"
         size="sm"
         variant="ghost"
-        class="justify-start w-full mx-0 px-1"
+        class="justify-start w-full mx-0 px-2"
       >
         <CopyIcon class="h-5 w-5 mr-1" />
         <span>复制当前节点</span>
@@ -28,7 +28,7 @@
         @click="handleCopyToClipboard"
         size="sm"
         variant="ghost"
-        class="justify-start w-full mx-0 px-1"
+        class="justify-start w-full mx-0 px-2"
       >
         <ClipboardIcon class="h-5 w-5 mr-1" />
         <span>拷贝到剪切板</span>
@@ -38,7 +38,7 @@
         @click="handleDeleteNode"
         size="sm"
         variant="destructive"
-        class="justify-start w-full mx-0 px-1 mt-2"
+        class="justify-start w-full mx-0 px-2 mt-2"
       >
         <TrashIcon class="h-5 w-5 mr-1" />
         <span>删除当前节点</span>
