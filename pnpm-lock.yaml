@@ -112,6 +112,12 @@ importers:
       '@tiptap/extension-strike':
         specifier: ^2.11.5
         version: 2.11.5(@tiptap/core@2.11.5)
+      '@tiptap/extension-subscript':
+        specifier: ^2.11.7
+        version: 2.11.7(@tiptap/core@2.11.5)
+      '@tiptap/extension-superscript':
+        specifier: ^2.11.7
+        version: 2.11.7(@tiptap/core@2.11.5)
       '@tiptap/extension-table':
         specifier: ^2.11.7
         version: 2.11.7(@tiptap/core@2.11.5)(@tiptap/pm@2.11.5)
@@ -122,6 +128,12 @@ importers:
         specifier: ^2.11.7
         version: 2.11.7(@tiptap/core@2.11.5)
       '@tiptap/extension-table-row':
+        specifier: ^2.11.7
+        version: 2.11.7(@tiptap/core@2.11.5)
+      '@tiptap/extension-task-item':
+        specifier: ^2.11.7
+        version: 2.11.7(@tiptap/core@2.11.5)(@tiptap/pm@2.11.5)
+      '@tiptap/extension-task-list':
         specifier: ^2.11.7
         version: 2.11.7(@tiptap/core@2.11.5)
       '@tiptap/extension-text':
@@ -1209,6 +1221,22 @@ packages:
       '@tiptap/core': 2.11.5(@tiptap/pm@2.11.5)
     dev: false
 
+  /@tiptap/extension-subscript@2.11.7(@tiptap/core@2.11.5):
+    resolution: {integrity: sha512-I25ZexCddFJ9701DCCtQbX3Vtxzj5d9ss2GAXVweIUCdATCScaebsznyUQoN5papmhTxXsw5OD+K2ZHxP82pew==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+    dependencies:
+      '@tiptap/core': 2.11.5(@tiptap/pm@2.11.5)
+    dev: false
+
+  /@tiptap/extension-superscript@2.11.7(@tiptap/core@2.11.5):
+    resolution: {integrity: sha512-dNRpCcRJs0Qvv0sZRgbH7Y5hDVbWsGSZjtwFCs/mysPrvHqmXjzo7568kYWTggxEYxnXw6n0FfkCAEHlt0N90Q==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+    dependencies:
+      '@tiptap/core': 2.11.5(@tiptap/pm@2.11.5)
+    dev: false
+
   /@tiptap/extension-table-cell@2.11.7(@tiptap/core@2.11.5):
     resolution: {integrity: sha512-JMOkSYRckc5SJP86yGGiHzCxCR8ecrRENvTWAKib6qer2tutxs5u42W+Z8uTcHC2dRz7Fv54snOkDoqPwkf6cw==}
     peerDependencies:
@@ -1241,6 +1269,24 @@ packages:
     dependencies:
       '@tiptap/core': 2.11.5(@tiptap/pm@2.11.5)
       '@tiptap/pm': 2.11.5
+    dev: false
+
+  /@tiptap/extension-task-item@2.11.7(@tiptap/core@2.11.5)(@tiptap/pm@2.11.5):
+    resolution: {integrity: sha512-m+UyE85nnqhQ4epLMYqdwaQj6DoqGGUNE0gyJOtJB1qhBi7GM7yPEDoiX82ByaQetWjoZIduRuQSRfgkD0MEeA==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+      '@tiptap/pm': ^2.7.0
+    dependencies:
+      '@tiptap/core': 2.11.5(@tiptap/pm@2.11.5)
+      '@tiptap/pm': 2.11.5
+    dev: false
+
+  /@tiptap/extension-task-list@2.11.7(@tiptap/core@2.11.5):
+    resolution: {integrity: sha512-rgpkLvKxeSWibMpZazR5PkISSwz90Wnpe/KqIWLu/s3UuRE0Sc5kA8ZOva4ZAvcpSWEJ1cNn1OqllwHsj0NxwQ==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+    dependencies:
+      '@tiptap/core': 2.11.5(@tiptap/pm@2.11.5)
     dev: false
 
   /@tiptap/extension-text-align@2.11.7(@tiptap/core@2.11.5):
