@@ -62,6 +62,7 @@ import { Separator } from '@/components/ui/separator'
 import { Editor } from '@tiptap/core'
 import { Node } from '@tiptap/pm/model'
 import type { NodeSelection } from '@tiptap/pm/state'
+import { DOMSerializer } from '@tiptap/pm/model'
 
 const props = defineProps<{
   editor: Editor
@@ -75,9 +76,9 @@ const menuOpen = ref(false)
 const handleRemoveFormatting = () => {
   const { editor, currentNode, currentNodePos } = props
   if (!editor || !currentNode) return
-  editor.chain().setNodeSelection(currentNodePos).unsetAllMarks()
+  editor.chain().setNodeSelection(currentNodePos).unsetAllMarks().run()
   if (currentNode?.type.name !== 'paragraph') {
-    editor.chain().setParagraph()
+    editor.chain().setParagraph().run()
   }
   editor.chain().focus(currentNodePos).run()
 }
@@ -100,9 +101,37 @@ const handleCopyToClipboard = () => {
   const { editor, currentNode, currentNodePos } = props
   if (!editor || !currentNode) return
 
+  // 选中当前节点
   editor.chain().setNodeSelection(currentNodePos).run()
-  const content = editor.state.selection.content().toJSON()
-  navigator.clipboard.writeText(JSON.stringify(content))
+
+  // 获取HTML
+  const serializer = DOMSerializer.fromSchema(editor.schema)
+  const fragment = serializer.serializeFragment(editor.state.selection.content().content)
+  const tempDiv = document.createElement('div')
+  tempDiv.appendChild(fragment)
+  const html = tempDiv.innerHTML
+  const text = tempDiv.textContent || ''
+
+  // 使用ClipboardItem API同时提供HTML和纯文本格式
+  if (window.ClipboardItem) {
+    navigator.clipboard
+      .write([
+        new ClipboardItem({
+          'text/html': new Blob([html], { type: 'text/html' }),
+          'text/plain': new Blob([text], { type: 'text/plain' }),
+        }),
+      ])
+      .catch((error) => {
+        console.error('复制到剪贴板失败:', error)
+        // 回退到基本方法
+        navigator.clipboard.writeText(text)
+      })
+  } else {
+    // 对于不支持ClipboardItem的浏览器，退回到基本文本复制
+    navigator.clipboard.writeText(text)
+  }
+
+  // 恢复原来的选区状态
   editor.commands.focus(currentNodePos)
 }
 
