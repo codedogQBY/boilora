@@ -8,6 +8,12 @@
   opacity: 0.75;
 }
 
-.tiptap:not(:focus) [data-placeholder]::before {
+/* 非聚焦状态下隐藏占位符，除了第一个段落 */
+.tiptap:not(:focus) [data-placeholder]:not(:first-child)::before {
   display: none;
+}
+
+/* 确保空编辑器的第一个段落总是显示占位符 */
+.tiptap p:first-child[data-placeholder]::before {
+  display: block !important;
 }
