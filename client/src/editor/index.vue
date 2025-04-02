@@ -15,6 +15,7 @@ import './styles/typography.css'
 import './styles/blocks.css'
 import './styles/tables.css'
 import './styles/link.css'
+import './styles/list-styles.css'
 
 const editor = useEditor({
   content: '',

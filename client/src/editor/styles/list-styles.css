@@ -1,0 +1,54 @@
+/* 无序列表样式 */
+.tiptap ul {
+  padding-left: 1.5em !important;
+  list-style-type: disc !important;
+}
+
+.tiptap ul li {
+  position: relative;
+  margin-bottom: 0.25em;
+  list-style-type: disc !important;
+}
+
+/* 有序列表样式 */
+.tiptap ol {
+  padding-left: 1.5em !important;
+  list-style-type: decimal !important;
+}
+
+.tiptap ol li {
+  position: relative;
+  margin-bottom: 0.25em;
+  list-style-type: decimal !important;
+}
+
+/* 其余样式保持不变 */
+.tiptap ul li p {
+  margin: 0;
+}
+
+.tiptap ol li p {
+  margin: 0;
+}
+
+/* 任务列表需要特殊处理 */
+.tiptap ul[data-type='taskList'] {
+  padding-left: 0 !important;
+  list-style-type: none !important;
+}
+
+.tiptap ul[data-type='taskList'] li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.25em;
+  list-style-type: none !important;
+}
+
+.tiptap ul[data-type='taskList'] li > label {
+  margin-right: 0.5em;
+  user-select: none;
+}
+
+.tiptap ul[data-type='taskList'] li > div {
+  flex: 1;
+}
