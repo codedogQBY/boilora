@@ -12,7 +12,7 @@
       <div class="flex-1 overflow-auto scrollbar-thin">
         <div class="max-w-3xl mx-auto px-8 py-12">
           <!-- 页面标题区域 -->
-          <div class="mb-10">
+          <div>
             <DocPageTitle
               v-model:title="currentPage.title"
               :icon="currentPage.icon"

@@ -1,5 +1,5 @@
 import { Bold } from './bold'
-import { BulletList } from '@/editor/extensions/bullet-list'
+import { BulletList } from './bullet-list'
 import { Code } from './code'
 import { CodeBlock } from './code-block'
 import { Color } from './color'
@@ -27,6 +27,7 @@ import { Table, TableHeader, TableRow, TableCell } from './table'
 import { TaskItem, TaskList } from './task'
 import { Subscript } from './subscript'
 import { Superscript } from './superscript'
+import { ShortcutCommand } from './shortcut-command'
 
 export default [
   Bold,
@@ -62,4 +63,5 @@ export default [
   BulletList,
   Subscript,
   Superscript,
+  ShortcutCommand,
 ]

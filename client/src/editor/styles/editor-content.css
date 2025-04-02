@@ -1,0 +1,54 @@
+/* 编辑器内容的全局样式 */
+
+/* 无序列表样式 */
+.ProseMirror ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+  margin: 0.5em 0;
+}
+
+.ProseMirror ul li {
+  position: relative;
+  margin-bottom: 0.3em;
+}
+
+/* 有序列表样式 */
+.ProseMirror ol {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+  margin: 0.5em 0;
+}
+
+.ProseMirror ol li {
+  position: relative;
+  margin-bottom: 0.3em;
+}
+
+/* 任务列表样式 */
+.ProseMirror ul[data-type='taskList'] {
+  list-style-type: none;
+  padding-left: 0.5em;
+}
+
+.ProseMirror ul[data-type='taskList'] li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5em;
+}
+
+.ProseMirror ul[data-type='taskList'] li > label {
+  margin-right: 0.5em;
+  user-select: none;
+}
+
+.ProseMirror ul[data-type='taskList'] li > div {
+  flex: 1;
+}
+
+/* 嵌套列表的样式 */
+.ProseMirror ul ul,
+.ProseMirror ol ol,
+.ProseMirror ul ol,
+.ProseMirror ol ul {
+  margin: 0.5em 0 0.5em 1em;
+}
