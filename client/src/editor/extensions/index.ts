@@ -28,6 +28,7 @@ import { TaskItem, TaskList } from './task'
 import { Subscript } from './subscript'
 import { Superscript } from './superscript'
 import { ShortcutCommand } from './shortcut-command'
+import { Placeholder } from './placeholder'
 
 export default [
   Bold,
@@ -64,4 +65,5 @@ export default [
   Subscript,
   Superscript,
   ShortcutCommand,
+  Placeholder,
 ]

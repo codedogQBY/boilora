@@ -109,6 +109,9 @@ importers:
       '@tiptap/extension-paragraph':
         specifier: ^2.11.5
         version: 2.11.5(@tiptap/core@2.11.5)
+      '@tiptap/extension-placeholder':
+        specifier: ^2.11.7
+        version: 2.11.7(@tiptap/core@2.11.5)(@tiptap/pm@2.11.5)
       '@tiptap/extension-strike':
         specifier: ^2.11.5
         version: 2.11.5(@tiptap/core@2.11.5)
@@ -1211,6 +1214,16 @@ packages:
       '@tiptap/core': ^2.7.0
     dependencies:
       '@tiptap/core': 2.11.5(@tiptap/pm@2.11.5)
+    dev: false
+
+  /@tiptap/extension-placeholder@2.11.7(@tiptap/core@2.11.5)(@tiptap/pm@2.11.5):
+    resolution: {integrity: sha512-/06zXV4HIjYoiaUq1fVJo/RcU8pHbzx21evOpeG/foCfNpMI4xLU/vnxdUi6/SQqpZMY0eFutDqod1InkSOqsg==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+      '@tiptap/pm': ^2.7.0
+    dependencies:
+      '@tiptap/core': 2.11.5(@tiptap/pm@2.11.5)
+      '@tiptap/pm': 2.11.5
     dev: false
 
   /@tiptap/extension-strike@2.11.5(@tiptap/core@2.11.5):
